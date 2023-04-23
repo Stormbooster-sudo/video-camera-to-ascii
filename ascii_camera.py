@@ -5,10 +5,10 @@ import os
 import sys
 
 # for camera input
-# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
 #for video file input
-cap = cv2.VideoCapture("file-name.mp4")
+#cap = cv2.VideoCapture("file-name.mp4")
 
 def display(value):
     pass
