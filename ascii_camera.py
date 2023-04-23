@@ -3,7 +3,13 @@ from PIL import ImageFont, ImageDraw, Image
 import numpy as np
 import os
 import sys
-cap = cv2.VideoCapture(0)
+
+# for camera input
+# cap = cv2.VideoCapture(0)
+
+#for video file input
+cap = cv2.VideoCapture("file-name.mp4")
+
 def display(value):
     pass
 cv2.namedWindow("Original")
