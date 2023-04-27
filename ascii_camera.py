@@ -5,10 +5,10 @@ import os
 import sys
 
 # --------- for camera input --------- 
-# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
 # --------- for video file input --------- 
-cap = cv2.VideoCapture("serious.mp4")
+# cap = cv2.VideoCapture("file-name.mp4")
 
 def display(value):
     pass
@@ -45,9 +45,9 @@ while True:
     for i in range(len(str_shade)):
         re_frame[(re_frame > val) & (re_frame <= (val + 25.5))] = 9 - i
         val += 25.5
-    str_frame = np.chararray((h, w))
     
     #substitute the value with charactor in re_frame array to making plain texts frame
+    str_frame = np.chararray((h, w))
     text = ""
     for row in range(h):
         for col in range(w):
