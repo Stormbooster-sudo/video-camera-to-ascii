@@ -4,11 +4,11 @@ import numpy as np
 import os
 import sys
 
-# for camera input
+# --------- for camera input --------- 
 # cap = cv2.VideoCapture(0)
 
-#for video file input
-cap = cv2.VideoCapture("file-name.mp4")
+# --------- for video file input --------- 
+cap = cv2.VideoCapture("serious.mp4")
 
 def display(value):
     pass
@@ -39,23 +39,24 @@ while True:
     font_scale = cv2.getTrackbarPos("Font Scale","Original")
     font = ImageFont.truetype(path, font_scale)
 
+    #mask the value in re_frame array from gray format (0-255) to 0-9, which match with string shade (offset -> 25.5)
     val = 0
     str_shade = " .;-=+*#%@"
     for i in range(len(str_shade)):
         re_frame[(re_frame > val) & (re_frame <= (val + 25.5))] = 9 - i
         val += 25.5
     str_frame = np.chararray((h, w))
-       
+    
+    #substitute the value with charactor in re_frame array to making plain texts frame
+    text = ""
     for row in range(h):
         for col in range(w):
             str_frame[row][col] = str(str_shade[re_frame[row][col]])
-    text = ""
-    for i in range(h):
-        text += str(str_frame[i].tostring()).replace("b","") + "\n"
+        text += str(str_frame[row].tostring()).replace("b","") + "\n"
 
     #===== ASCII output =====
     #------ display on terminal ------
-    print(text)
+    print(re_frame)
 
     #------ display in new window ------
     # draw.text((-x, -y), text, font=font)
