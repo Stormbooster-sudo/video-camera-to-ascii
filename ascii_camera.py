@@ -56,7 +56,7 @@ while True:
 
     #===== ASCII output =====
     #------ display on terminal ------
-    print(re_frame)
+    print(text)
 
     #------ display in new window ------
     # draw.text((-x, -y), text, font=font)
